@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: poppins;
+}
+
+html, 
+body {
+    background-color: black;
+}
+
+.UI {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.UI .counter-box,
+.UI .highscore-box {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 0.5rem;
+    color: white;
+    place-content: start;
+    place-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.UI .highscore-box {
+    z-index: 5;
+    top: 15vh;
+    left: 0;
+    padding: 1.5rem;
+    place-content: center;
+    transition: none;
+    opacity: 1;
+}
+
+.UI.play .counter-box {
+    opacity: 1;
+}
+
+.UI.play .highscore-box {
+    opacity: 0;
+}
+
+.UI .counter-box .counter,
+.UI .highscore-box .highscore {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    line-height: 0;
+}
+
+.UI .highscore-box .highscore {
+    grid-template-columns: revert;
+    grid-auto-flow: column;
+    grid-gap: .5rem;
+}
+
+.UI .counter-box img,
+.UI .highscore-box img {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.UI .start-game-navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    transition: .3s ease;
+}
+
+.UI.play .start-game-navigation {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.UI .start-game-navigation .start-game-button {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding: 3rem;
+    animation: start 2s ease-in forwards infinite;
+}
+
+@keyframes start {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .25;
+    }
+    100% {
+        opacity: 1;
+    }
+}

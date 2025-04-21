@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Evony Clone</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="description" content="Evony mobile game clone.">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link id="style" rel="stylesheet" href="style.css">
+        <link rel="icon" href="https://evonyclone.netlify.app/assets/box.png" type="image/png">
+        <link rel="manifest" crossorigin="use-credentials" href="manifest.json">
+        <link rel="apple-touch-icon" size="512x512" href="https://evonyclone.netlify.app/assets/box.png">
+        <link rel="apple-touch-icon" size="192x192" href="https://evonyclone.netlify.app/assets/box.png">
+        <meta name="apple-mobile-web-app-title" content="Evony Clone">
+        <meta name="theme-color" content="#000000">
+        <meta property="apple-mobile-web-app-status-bar" content="#000000">
+        <meta property="og:title" content="Evony Clone">
+        <meta property="og:description" content="Evony mobile game clone.">
+        <meta property="og:image" content="https://evonyclone.netlify.app/assets/box.png">
+        <meta property="og:url" content="https://evonyclone.netlify.app">
+        <meta name="twitter:title" content="Evony Clone">
+        <meta property="og:image:width" content ="1280">
+        <meta property="og:image:height" content ="720">
+        <meta name="twitter:description" content="Evony mobile game clone.">
+        <meta name="twitter:image" content="https://evonyclone.netlify.app/assets/box.png">
+        <meta name="twitter:card" content="summary_large_image">
+    </head>
+    <body>
+        <main class="UI">
+            <div class="counter-box">
+                <h1 class="counter">1</h1>
+                <img src="assets/box.png">
+            </div>
+            <div class="highscore-box">
+                <h2 class="highscore">
+                    <span>Highscore: </span>
+                    <span class="number">1</span>
+                </h2>
+                <img src="assets/box.png">
+            </div>
+            <div class="start-game-navigation">
+                <button type="button" class="start-game-button" title="Start Game">Click Anywhere To Start The Game</button>
+            </div>
+        </main>
+    </body>
+</html>
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js",
+        "jsm/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/"
+    }
+}
+</script>
+<script src="script.js" type="module"></script>
