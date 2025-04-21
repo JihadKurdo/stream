@@ -1,4 +1,27 @@
 import * as THREE from "three"
+    
+const manager = new THREE.LoadingManager()
+const loadingBar = document.querySelector(".loader")
+const loadingBarSpan = document.querySelector(".loader span")
+
+manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+
+    const percent = Math.round((itemsLoaded / itemsTotal) * 100)
+    loadingBarSpan.innerText = `Loading: ${percent}%`
+
+}
+
+manager.onLoad = function () {
+
+    loadingBarSpan.innerText = "Loading: 100%"
+
+    setTimeout(() => {
+
+        loadingBar.classList.add("loaded")
+
+    }, 500)
+
+}
 
 let w = window.innerWidth
 let h = window.innerHeight
@@ -129,7 +152,7 @@ let firstRow = true
 
 function createGroundPlane(zPosition) {
 
-    const textureLoader = new THREE.TextureLoader()
+    const textureLoader = new THREE.TextureLoader(manager)
     const groundTexture = textureLoader.load("assets/ground.png")
     groundTexture.wrapS = THREE.RepeatWrapping
     groundTexture.wrapT = THREE.RepeatWrapping
@@ -279,13 +302,15 @@ function startGame() {
         const obstaclesToRemove = []
 
         scene.traverse((child) => {
-            if (child.obstacle === true) {
-                obstaclesToRemove.push(child)
-            }
+
+            if (child.obstacle === true) obstaclesToRemove.push(child)
+
         })
         
         obstaclesToRemove.forEach((obstacle) => {
+
             scene.remove(obstacle)
+
         })
 
         firstRow = true
@@ -303,8 +328,7 @@ document.addEventListener("mousedown", (e) => {
     handleMove(e.clientX)
     startHold(e)
 
-    if (!e.target.classList.contains("start-game-button")) return
-    startGame()
+    if (e.target.classList.contains("start-game-button")) startGame()
 
 })
 
@@ -320,8 +344,7 @@ document.addEventListener("touchstart", (e) => {
     handleMove(e.touches[0].clientX)
     startHold(e)
 
-    if (!e.target.classList.contains("start-game-button")) return
-    startGame()
+    if (e.target.classList.contains("start-game-button")) startGame()
 
 }, {passive: false})
 document.addEventListener("touchmove", (e) => {
